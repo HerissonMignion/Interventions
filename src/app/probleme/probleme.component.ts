@@ -1,4 +1,9 @@
 import { Component } from '@angular/core';
+import {
+  FormBuilder,
+  FormGroup,
+  Validators
+ } from '@angular/forms';
 
 @Component({
   selector: 'Inter-probleme',
@@ -6,7 +11,17 @@ import { Component } from '@angular/core';
   styleUrls: ['./probleme.component.css']
 })
 export class ProblemeComponent {
+  problemeForm: FormGroup;
 
+  constructor(private fb: FormBuilder){
+
+  }
+
+  ngOnInit() {
+    this.problemeForm = this.fb.group({
+      prenom: ["", [Validators.minLength(3)]]
+    });
+  }
 
   save(): void {
     

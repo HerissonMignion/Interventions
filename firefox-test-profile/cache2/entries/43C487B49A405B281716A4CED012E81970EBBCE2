@@ -99,7 +99,7 @@ describe('AppComponent', () => {
     const fixture = _angular_core_testing__WEBPACK_IMPORTED_MODULE_2__.TestBed.createComponent(_app_component__WEBPACK_IMPORTED_MODULE_1__.AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('Interventions app is running!');
+    expect(compiled.querySelector('.navbar-brand')?.textContent).toContain('Gestion des interventions');
   });
 });
 
@@ -150,6 +150,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _home_charles_ProjectsEcole_analyse_mod_le_Interventions_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js */ 1670);
 /* harmony import */ var _angular_core_testing__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core/testing */ 5115);
 /* harmony import */ var _probleme_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./probleme.component */ 5272);
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ 2508);
+
 
 
 
@@ -158,6 +160,7 @@ describe('ProblemeComponent', () => {
   let fixture;
   beforeEach( /*#__PURE__*/(0,_home_charles_ProjectsEcole_analyse_mod_le_Interventions_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
     yield _angular_core_testing__WEBPACK_IMPORTED_MODULE_2__.TestBed.configureTestingModule({
+      imports: [_angular_forms__WEBPACK_IMPORTED_MODULE_3__.ReactiveFormsModule],
       declarations: [_probleme_component__WEBPACK_IMPORTED_MODULE_1__.ProblemeComponent]
     }).compileComponents();
     fixture = _angular_core_testing__WEBPACK_IMPORTED_MODULE_2__.TestBed.createComponent(_probleme_component__WEBPACK_IMPORTED_MODULE_1__.ProblemeComponent);
@@ -166,6 +169,14 @@ describe('ProblemeComponent', () => {
   }));
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+  it("zone nom problÃ¨me valide avec au moins 3 caractÃ¨res", () => {
+    const zone = component.problemeForm.controls["nomProbleme"];
+    zone.setValue("a".repeat(3));
+    expect(zone.valid).toBeTruthy();
+  });
+  it("zone nom problÃ¨me invalide avec 2 caractÃ¨res ou moins", () => {
+    const zone = component.problemeForm.controls["nomProbleme"];
   });
 });
 
@@ -182,19 +193,32 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "ProblemeComponent": () => (/* binding */ ProblemeComponent)
 /* harmony export */ });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! tslib */ 4929);
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! tslib */ 4929);
 /* harmony import */ var _probleme_component_html_ngResource__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./probleme.component.html?ngResource */ 7169);
 /* harmony import */ var _probleme_component_css_ngResource__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./probleme.component.css?ngResource */ 4603);
 /* harmony import */ var _probleme_component_css_ngResource__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_probleme_component_css_ngResource__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ 2560);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/core */ 2560);
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ 2508);
+var _class;
 
 
 
 
-let ProblemeComponent = class ProblemeComponent {
+
+let ProblemeComponent = (_class = class ProblemeComponent {
+  constructor(fb) {
+    this.fb = fb;
+  }
+  ngOnInit() {
+    this.problemeForm = this.fb.group({
+      nomProbleme: ["", [_angular_forms__WEBPACK_IMPORTED_MODULE_2__.Validators.minLength(3)]]
+    });
+  }
   save() {}
-};
-ProblemeComponent = (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__decorate)([(0,_angular_core__WEBPACK_IMPORTED_MODULE_3__.Component)({
+}, _class.ctorParameters = () => [{
+  type: _angular_forms__WEBPACK_IMPORTED_MODULE_2__.FormBuilder
+}], _class);
+ProblemeComponent = (0,tslib__WEBPACK_IMPORTED_MODULE_3__.__decorate)([(0,_angular_core__WEBPACK_IMPORTED_MODULE_4__.Component)({
   selector: 'Inter-probleme',
   template: _probleme_component_html_ngResource__WEBPACK_IMPORTED_MODULE_0__,
   styles: [(_probleme_component_css_ngResource__WEBPACK_IMPORTED_MODULE_1___default())]
@@ -318,15 +342,15 @@ module.exports = "<div class=\"container\">\n    <br/>\n    <div class=\"card\">
 /******/ var __webpack_exports__ = __webpack_require__.O();
 /******/ }
 ]);
-//# sourceMappingURL=main.js.map¦ki •           dÃ7E^õ—dÃ7   [    O^partitionKey=%28http%2Clocalhost%2C9876%29,:http://localhost:9876/_karma_webpack_/main.js strongly-framed 1 request-method GET response-head HTTP/1.1 200 OK
+//# sourceMappingURL=main.js.map9y‹Ž·           d'!Ek§²d'!   [    O^partitionKey=%28http%2Clocalhost%2C9876%29,:http://localhost:9876/_karma_webpack_/main.js strongly-framed 1 request-method GET response-head HTTP/1.1 200 OK
 Content-Type: application/javascript; charset=utf-8
 Accept-Ranges: bytes
-Content-Length: 19243
-Date: Fri, 17 Mar 2023 19:44:55 GMT
+Content-Length: 20254
+Date: Fri, 31 Mar 2023 17:10:57 GMT
  original-response-headers Content-Type: application/javascript; charset=utf-8
 Accept-Ranges: bytes
-Content-Length: 19243
-Date: Fri, 17 Mar 2023 19:44:55 GMT
+Content-Length: 20254
+Date: Fri, 31 Mar 2023 17:10:57 GMT
 Connection: keep-alive
 Keep-Alive: timeout=5
- ctid 2 uncompressed-len 0   K+
+ ctid 2 uncompressed-len 0   O
