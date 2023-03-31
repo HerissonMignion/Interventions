@@ -74,6 +74,23 @@ Thumbs.db
 /firefox-test-profile/extensions.json
 /firefox-test-profile/formhistory.sqlite
 /firefox-test-profile/xulstore.json
+/firefox-test-profile/cache2
+/firefox-test-profile/activity-stream.discovery_stream.json
+/firefox-test-profile/addonStartup.json.lz4
+/firefox-test-profile/datareporting/glean/db/data.safe.bin
+/firefox-test-profile/datareporting/glean/events/pageload
+/firefox-test-profile/extensions.json
+/firefox-test-profile/favicons.sqlite-wal
+/firefox-test-profile/places.sqlite
+/firefox-test-profile/places.sqlite-wal
+/firefox-test-profile/prefs.js
+/firefox-test-profile/protections.sqlite
+/firefox-test-profile/startupCache/scriptCache-child-current.bin
+/firefox-test-profile/startupCache/scriptCache-current.bin
+/firefox-test-profile/startupCache/startupCache.8.little
+/firefox-test-profile/startupCache/urlCache-current.bin
+/firefox-test-profile/startupCache/webext.sc.lz4
+/firefox-test-profile/storage.sqlite
 
 
 
