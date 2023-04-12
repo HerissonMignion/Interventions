@@ -45,12 +45,12 @@
             <label for="nomId" class="col-md-2 col-form-label text-right">Nom :</label>
             <div class="col-md-10">
               <input class="form-control" id="nomId" type="text" placeholder="Votre nom ici (obligatoire)"
-                formControlName="nom" [ngClass]="{'is-valid': (problemeForm.get('prenom').touched || 
-                  problemeForm.get('prenom').dirty) &&
-                  problemeForm.get('prenom').valid,
-                  'is-invalid': (problemeForm.get('prenom').touched || 
-                  problemeForm.get('prenom').dirty) &&
-                  !problemeForm.get('prenom').valid}" />
+                formControlName="nom" [ngClass]="{'is-valid': (problemeForm.get('nom').touched || 
+                  problemeForm.get('nom').dirty) &&
+                  problemeForm.get('nom').valid,
+                  'is-invalid': (problemeForm.get('nom').touched || 
+                  problemeForm.get('nom').dirty) &&
+                  !problemeForm.get('nom').valid}" />
 
             </div>
             <!-- nom -->
@@ -75,7 +75,13 @@
               <div class="col-sm-10">
                 <select class="form-control"
                 id="noTypeProblemeId"
-                formControlName="noTypeProblemeId">
+                formControlName="noTypeProbleme"
+                [ngClass]="{'is-valid': (problemeForm.get('noTypeProbleme').touched || 
+                  problemeForm.get('noTypeProbleme').dirty) &&
+                  problemeForm.get('noTypeProbleme').valid,
+                  'is-invalid': (problemeForm.get('noTypeProbleme').touched || 
+                  problemeForm.get('noTypeProbleme').dirty) &&
+                  !problemeForm.get('noTypeProbleme').valid}">
                   <option value="">Sélectionner une catégorie de produit</option>
                   <option *ngFor="let t of typesProbleme" [value]="t.id">{{t.descriptionTypeProbleme}}</option>
                 </select>

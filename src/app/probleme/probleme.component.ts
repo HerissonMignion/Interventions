@@ -3,7 +3,7 @@ import {
   FormBuilder,
   FormGroup,
   Validators
- } from '@angular/forms';
+} from '@angular/forms';
 import { VerifierCaracteresValidator } from '../shared/longueur-minimum/longueur-minimum.component';
 import { TypesProblemeService } from './types-probleme.service';
 import { ITypeProbleme } from './probleme';
@@ -18,31 +18,35 @@ export class ProblemeComponent {
   public typesProbleme: ITypeProbleme[];
   private errorMessage: any;
 
-  constructor(private fb: FormBuilder, private typeProblemeService: TypesProblemeService){
+  constructor(private fb: FormBuilder, private typeProblemeService: TypesProblemeService) {
 
   }
 
   ngOnInit() {
     this.problemeForm = this.fb.group({
-      prenom: ["", [
-        VerifierCaracteresValidator.longueurMinimum(3),
-        Validators.required
-      ]],
+      prenom: ["",
+        [
+          VerifierCaracteresValidator.longueurMinimum(3),
+          Validators.required
+        ]],
       nom: [
-        "", [
-          
-        ]
+        "",
+        []
+      ],
+      noTypeProbleme: [
+        "",
+        []
       ]
     });
 
     this.typeProblemeService.obtenirTypesProbleme()
-    .subscribe(typesProbleme => this.typesProbleme = typesProbleme,
-               error => this.errorMessage = <any>error);  
+      .subscribe(typesProbleme => this.typesProbleme = typesProbleme,
+        error => this.errorMessage = <any>error);
 
   }
 
   save(): void {
-    
+
   }
 
 }
