@@ -23,7 +23,12 @@ export class ProblemeComponent {
       prenom: ["", [
         VerifierCaracteresValidator.longueurMinimum(3),
         Validators.required
-      ]]
+      ]],
+      nom: [
+        "", [
+          
+        ]
+      ]
     });
   }
 
