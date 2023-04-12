@@ -5,6 +5,8 @@ import {
   Validators
  } from '@angular/forms';
 import { VerifierCaracteresValidator } from '../shared/longueur-minimum/longueur-minimum.component';
+import { TypesProblemeService } from './types-probleme.service';
+import { ITypeProbleme } from './probleme';
 
 @Component({
   selector: 'Inter-probleme',
@@ -13,8 +15,10 @@ import { VerifierCaracteresValidator } from '../shared/longueur-minimum/longueur
 })
 export class ProblemeComponent {
   problemeForm: FormGroup;
+  public typesProbleme: ITypeProbleme[];
+  private errorMessage: any;
 
-  constructor(private fb: FormBuilder){
+  constructor(private fb: FormBuilder, private typeProblemeService: TypesProblemeService){
 
   }
 
@@ -30,6 +34,11 @@ export class ProblemeComponent {
         ]
       ]
     });
+
+    this.typeProblemeService.obtenirTypesProbleme()
+    .subscribe(typesProbleme => this.typesProbleme = typesProbleme,
+               error => this.errorMessage = <any>error);  
+
   }
 
   save(): void {
