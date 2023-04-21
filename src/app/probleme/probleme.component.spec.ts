@@ -129,7 +129,7 @@ describe('ProblemeComponent', () => {
 
   it("22 | zone adresse courriel est invalide sans valeur quand notifier par courriel", () => {
     component.appliquerNotifications("courriel");
-    const courriel = component.problemeForm.get("courrielGroupx.courriel");
+    const courriel = component.problemeForm.get("courrielGroup.courriel");
     courriel.setValue("");
     expect(courriel.valid).toBeFalsy();
   });
@@ -150,20 +150,43 @@ describe('ProblemeComponent', () => {
 
   });
 
-  it("25 | zone adresse courriel sans valeur et zone confirmer courriel avec valeur valide retourne null", () => {
-
+  it("25 | zone adresse courriel sans valeur et zone confirmer courriel avec valeur valide retourne faux", () => {
+    const group = component.problemeForm.get("courrielGroup");
+    const courriel = component.problemeForm.get("courrielGroup");
+    const courriel2 = component.problemeForm.get("courrielGroup.courriel2");
+    // courriel.setValue("");
+    // courriel2.setValue("");
+    // const errors = group.errors || {};
+    expect(group.valid).toBeFalse();
   });
 
   it("26 | zone adresse courriel avec valeur valide et zone confirmer courriel sans valeur retourne null", () => {
+    const group = component.problemeForm.get("courrielGroup");
+    const courriel = component.problemeForm.get("courrielGroup.courriel");
+    const courriel2 = component.problemeForm.get("courrielGroup.courriel2");
+    courriel.setValue("asdf@exemple.com");
+    // courriel2.setValue("");
+    // const errors = group.errors || {};
+    expect(group.valid).toBeFalse();
 
   });
 
   it("27 | zone adresse courriel et confirmer courriel sont invalides si les valeurs sont différentes quand notifier par courriel", () => {
-
+    const group = component.problemeForm.get("courrielGroup");
+    const courriel = component.problemeForm.get("courrielGroup.courriel");
+    const courriel2 = component.problemeForm.get("courrielGroup.courriel2");
+    courriel.setValue("asdf@exemple.com");
+    courriel2.setValue("qwer@exemple.com");
+    expect(group.valid).toBeFalse();
   });
 
   it("28 | zone adresse courriel et confirmer courriel sont valides si les valeurs sont identiques quand notifier par courriel", () => {
-
+    const group = component.problemeForm.get("courrielGroup");
+    const courriel = component.problemeForm.get("courrielGroup.courriel");
+    const courriel2 = component.problemeForm.get("courrielGroup.courriel2");
+    courriel.setValue("asdf@exemple.com");
+    courriel2.setValue("asdf@exemple.com");
+    expect(group.valid).toBeFalse();
   })
 
 

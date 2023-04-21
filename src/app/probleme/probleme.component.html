@@ -166,11 +166,11 @@
 
 
               <!-- Zone de texte COURRIEL -->
-              <div class="form-group row">
+              <div class="form-group row"  formGroupName="courrielGroup">
                 <label for="courrielId" class="col-md-2 col-form-label text-right">courriel :</label>
                 <div class="col-md-10">
                   <input class="form-control" id="courrielId" type="text"
-                    placeholder="asdf@exemple.com" formControlName="courrielGroup.courriel"
+                    placeholder="asdf@exemple.com" formControlName="courriel"
                     [ngClass]="{'is-valid': (problemeForm.get('courrielGroup.courriel').touched ||
    problemeForm.get('courrielGroup.courriel').dirty) &&
    problemeForm.get('courrielGroup.courriel').valid , 'is-invalid': (problemeForm.get('courrielGroup.courriel').touched ||
@@ -205,11 +205,11 @@
             </div>
 
             <!-- Zone de texte confirmation COURRIEL -->
-            <div class="form-group row">
+            <div class="form-group row" formGroupName="courrielGroup">
               <label for="courriel2Id" class="col-md-2 col-form-label text-right">courriel confirmation :</label>
               <div class="col-md-10">
                 <input class="form-control" id="courriel2Id" type="text"
-                  placeholder="asdf@exemple.com" formControlName="courrielGroup.courriel2"
+                  placeholder="asdf@exemple.com" formControlName="courriel2"
                   [ngClass]="{'is-valid': (problemeForm.get('courrielGroup.courriel2').touched ||
  problemeForm.get('courrielGroup.courriel2').dirty) &&
  problemeForm.get('courrielGroup.courriel2').valid , 'is-invalid': (problemeForm.get('courrielGroup.courriel2').touched ||

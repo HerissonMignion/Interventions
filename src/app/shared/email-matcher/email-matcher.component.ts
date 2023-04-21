@@ -1,4 +1,4 @@
-// import { AbstractControl, ValidatorFn } from '@angular/forms';
+import { AbstractControl, ValidatorFn } from '@angular/forms';
 // export class emailMatcherValidator {
 //     static courrielDifferents(): ValidatorFn {
 //         return (c: AbstractControl): { [key: string]: boolean } | null => {
@@ -9,5 +9,14 @@
 //         };
 //     }   
 // }
-
+export class emailMatcherValidator {
+    static courrielDifferents(): ValidatorFn {
+        return (c: AbstractControl): { [key: string]: boolean } | null => {
+            if (!c.get("courriel").value || !c.get("courriel2").value) {
+              return null;
+            }
+            return c.get("courriel").value === c.get("courriel2").value ? null : { match: true };
+        };
+    }   
+}
 

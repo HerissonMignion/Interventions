@@ -8,6 +8,7 @@ import {
 import { VerifierCaracteresValidator } from '../shared/longueur-minimum/longueur-minimum.component';
 import { TypesProblemeService } from './types-probleme.service';
 import { ITypeProbleme } from './probleme';
+import { emailMatcherValidator } from '../shared/email-matcher/email-matcher.component';
 
 @Component({
   selector: 'Inter-probleme',
@@ -67,6 +68,8 @@ export class ProblemeComponent {
       courriel2: this.problemeForm.get("courrielGroup.courriel2")
     };
 
+    const controlCourrielGroup = this.problemeForm.get("courrielGroup");
+
     for (let prop in controls) {
       const control = controls[prop as keyof typeof controls];
       control.clearValidators();
@@ -86,6 +89,7 @@ export class ProblemeComponent {
       control.addValidators([Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+')]);
       control2.enable();
       control2.addValidators([Validators.required]);
+      controlCourrielGroup.setValidators(Validators.compose([emailMatcherValidator.courrielDifferents()]))
     }
 
 
