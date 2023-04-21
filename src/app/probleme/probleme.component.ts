@@ -43,8 +43,10 @@ export class ProblemeComponent {
       }),
       notification: [ "pasnotification" ],
       telephone: [{ value: '', disabled: true }],
-      // courriel: [{ value: '', disabled: true }],
-      // courriel2: [{ value: '', disabled: true }]
+
+      descriptionProbleme: ["", [Validators.required, Validators.minLength(5)]],
+      noUnite: "",
+      dateProbleme: [{ value: Date(), disabled: true }]
     });
 
     this.typeProblemeService.obtenirTypesProbleme()
