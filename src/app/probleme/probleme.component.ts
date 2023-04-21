@@ -37,12 +37,13 @@ export class ProblemeComponent {
       noTypeProbleme: ['', Validators.required],
       courrielGroup: this.fb.group({
         courriel: [{ value: '', disabled: true }],
-        courrielConfirmation: [{ value: '', disabled: true }],
+        courriel2: [{ value: '', disabled: true }],
+        // courrielConfirmation: [{ value: '', disabled: true }],
       }),
       notification: [ "pasnotification" ],
       telephone: [{ value: '', disabled: true }],
-      courriel: [{ value: '', disabled: true }],
-      courriel2: [{ value: '', disabled: true }]
+      // courriel: [{ value: '', disabled: true }],
+      // courriel2: [{ value: '', disabled: true }]
     });
 
     this.typeProblemeService.obtenirTypesProbleme()
@@ -62,8 +63,8 @@ export class ProblemeComponent {
   appliquerNotifications(valueNotification: string) {
     const controls = {
       telephone: this.problemeForm.get("telephone"),
-      courriel: this.problemeForm.get("courriel"),
-      courriel2: this.problemeForm.get("courriel2")
+      courriel: this.problemeForm.get("courrielGroup.courriel"),
+      courriel2: this.problemeForm.get("courrielGroup.courriel2")
     };
 
     for (let prop in controls) {
@@ -82,7 +83,7 @@ export class ProblemeComponent {
       const control = controls.courriel;
       const control2 = controls.courriel2;
       control.enable();
-      control.addValidators([Validators.required]);
+      control.addValidators([Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+')]);
       control2.enable();
       control2.addValidators([Validators.required]);
     }

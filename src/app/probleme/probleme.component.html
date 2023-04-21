@@ -170,31 +170,31 @@
                 <label for="courrielId" class="col-md-2 col-form-label text-right">courriel :</label>
                 <div class="col-md-10">
                   <input class="form-control" id="courrielId" type="text"
-                    placeholder="asdf@exemple.com" formControlName="courriel"
-                    [ngClass]="{'is-valid': (problemeForm.get('courriel').touched ||
-   problemeForm.get('courriel').dirty) &&
-   problemeForm.get('courriel').valid , 'is-invalid': (problemeForm.get('courriel').touched ||
-   problemeForm.get('courriel').dirty) &&
-   !problemeForm.get('courriel').valid }" />
+                    placeholder="asdf@exemple.com" formControlName="courrielGroup.courriel"
+                    [ngClass]="{'is-valid': (problemeForm.get('courrielGroup.courriel').touched ||
+   problemeForm.get('courrielGroup.courriel').dirty) &&
+   problemeForm.get('courrielGroup.courriel').valid , 'is-invalid': (problemeForm.get('courrielGroup.courriel').touched ||
+   problemeForm.get('courrielGroup.courriel').dirty) &&
+   !problemeForm.get('courrielGroup.courriel').valid }" />
 
 
 
-                  <span class="form-text" *ngIf="(problemeForm.get('courriel').touched ||
-   problemeForm.get('courriel').dirty) &&
-   (problemeForm.get('courriel').errors ||
-   problemeForm.get('courriel').errors)">
-                    <span *ngIf="problemeForm.get('courriel').errors['required']">
+                  <span class="form-text" *ngIf="(problemeForm.get('courrielGroup.courriel').touched ||
+   problemeForm.get('courrielGroup.courriel').dirty) &&
+   (problemeForm.get('courrielGroup.courriel').errors ||
+   problemeForm.get('courrielGroup.courriel').errors)">
+                    <span *ngIf="problemeForm.get('courrielGroup.courriel').errors['required']">
                       <small class="text-muted">
                         Merci de saisir votre courriel.
                       </small>
                     </span>
                     <span
-                      *ngIf="problemeForm.get('courriel').errors['minlength'] || problemeForm.get('courriel').errors['maxlength']">
+                      *ngIf="problemeForm.get('courrielGroup.courriel').errors['minlength'] || problemeForm.get('courrielGroup.courriel').errors['maxlength']">
                       <small class="text-muted">
                         Veuillez indiquer plus ou moins de caracteres.
                       </small>
                     </span>
-                    <span *ngIf="problemeForm.get('courriel').errors['pattern']">
+                    <span *ngIf="problemeForm.get('courrielGroup.courriel').errors['pattern']">
                       <small class="text-muted">
                         Merci d'entrer seulement des chiffres.
                       </small>
@@ -209,31 +209,31 @@
               <label for="courriel2Id" class="col-md-2 col-form-label text-right">courriel confirmation :</label>
               <div class="col-md-10">
                 <input class="form-control" id="courriel2Id" type="text"
-                  placeholder="asdf@exemple.com" formControlName="courriel2"
-                  [ngClass]="{'is-valid': (problemeForm.get('courriel2').touched ||
- problemeForm.get('courriel2').dirty) &&
- problemeForm.get('courriel2').valid , 'is-invalid': (problemeForm.get('courriel2').touched ||
- problemeForm.get('courriel2').dirty) &&
- !problemeForm.get('courriel2').valid }" />
+                  placeholder="asdf@exemple.com" formControlName="courrielGroup.courriel2"
+                  [ngClass]="{'is-valid': (problemeForm.get('courrielGroup.courriel2').touched ||
+ problemeForm.get('courrielGroup.courriel2').dirty) &&
+ problemeForm.get('courrielGroup.courriel2').valid , 'is-invalid': (problemeForm.get('courrielGroup.courriel2').touched ||
+ problemeForm.get('courrielGroup.courriel2').dirty) &&
+ !problemeForm.get('courrielGroup.courriel2').valid }" />
 
 
 
-                <span class="form-text" *ngIf="(problemeForm.get('courriel2').touched ||
- problemeForm.get('courriel2').dirty) &&
- (problemeForm.get('courriel2').errors ||
- problemeForm.get('courriel2').errors)">
-                  <span *ngIf="problemeForm.get('courriel2').errors['required']">
+                <span class="form-text" *ngIf="(problemeForm.get('courrielGroup.courriel2').touched ||
+ problemeForm.get('courrielGroup.courriel2').dirty) &&
+ (problemeForm.get('courrielGroup.courriel2').errors ||
+ problemeForm.get('courrielGroup.courriel2').errors)">
+                  <span *ngIf="problemeForm.get('courrielGroup.courriel2').errors['required']">
                     <small class="text-muted">
                       Merci de saisir votre courriel.
                     </small>
                   </span>
                   <span
-                    *ngIf="problemeForm.get('courriel2').errors['minlength'] || problemeForm.get('courriel2').errors['maxlength']">
+                    *ngIf="problemeForm.get('courrielGroup.courriel2').errors['minlength'] || problemeForm.get('courrielGroup.courriel2').errors['maxlength']">
                     <small class="text-muted">
                       Veuillez indiquer plus ou moins de caracteres.
                     </small>
                   </span>
-                  <span *ngIf="problemeForm.get('courriel2').errors['pattern']">
+                  <span *ngIf="problemeForm.get('courrielGroup.courriel2').errors['pattern']">
                     <small class="text-muted">
                       Merci d'entrer seulement des chiffres.
                     </small>

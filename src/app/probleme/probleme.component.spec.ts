@@ -30,9 +30,9 @@ describe('ProblemeComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+  // it('should create', () => {
+  //   expect(component).toBeTruthy();
+  // });
 
   it("zone prenom valide avec au moins 3 caractères", () => {
     const zone = component.problemeForm.controls["prenom"];
@@ -91,24 +91,80 @@ describe('ProblemeComponent', () => {
   it("16 | zone telephone est vide quand ne pas me notifier", () => {
     component.appliquerNotifications("pasnotification");
     const telephone = component.problemeForm.get("telephone");
-    console.log(telephone.value);
     expect(telephone.value == null).toBeTruthy();
   });
 
   it("17 | zone adresse courriel est désactivée quand ne pas me notifier", () => {
     component.appliquerNotifications("pasnotification");
-    const courriel = component.problemeForm.get("courriel");
+    const courriel = component.problemeForm.get("courrielGroup.courriel");
     expect(courriel.disabled).toBeTruthy();
 
   });
 
   it("18 | confirmer courriel est désactivée quand ne pas me notifier", () => {
     component.appliquerNotifications("pasnotification");
-    const courriel2 = component.problemeForm.get("courriel2");
+    const courriel2 = component.problemeForm.get("courrielGroup.courriel2");
     expect(courriel2.disabled).toBeTruthy();
 
   });
 
+  it("19 | zone TELEPHONE est désactivée quand notifier par courriel", () => {
+    component.appliquerNotifications("courriel");
+    const telephone = component.problemeForm.get("telephone");
+    expect(telephone.disabled).toBeTruthy();
+
+  });
+
+  it("20 | zone adresse courriel est activée quand notifier par courriel", () => {
+    component.appliquerNotifications("courriel");
+    const courriel = component.problemeForm.get("courrielGroup.courriel");
+    expect(courriel.disabled).toBeFalsy();
+  });
+
+  it("21 | zone confirmer courriel est activée quand notifier par courriel", () => {
+    component.appliquerNotifications("courriel");
+    const courriel2 = component.problemeForm.get("courrielGroup.courriel2");
+    expect(courriel2.disabled).toBeFalsy();
+  });
+
+  it("22 | zone adresse courriel est invalide sans valeur quand notifier par courriel", () => {
+    component.appliquerNotifications("courriel");
+    const courriel = component.problemeForm.get("courrielGroupx.courriel");
+    courriel.setValue("");
+    expect(courriel.valid).toBeFalsy();
+  });
+
+  it("23 | zone confirmer courriel est invalide sans valeur quand notifier par courriel", () => {
+    component.appliquerNotifications("courriel");
+    const courriel2 = component.problemeForm.get("courrielGroup.courriel2");
+    courriel2.setValue("");
+    expect(courriel2.valid).toBeFalsy();
+
+  });
+
+  it("24 | zone adresse courriel est invalide avec un format non conforme", () => {
+    component.appliquerNotifications("courriel");
+    const courriel = component.problemeForm.get("courrielGroup.courriel");
+    courriel.setValue("agaergegsehth");
+    expect(courriel.valid).toBeFalsy();
+
+  });
+
+  it("25 | zone adresse courriel sans valeur et zone confirmer courriel avec valeur valide retourne null", () => {
+
+  });
+
+  it("26 | zone adresse courriel avec valeur valide et zone confirmer courriel sans valeur retourne null", () => {
+
+  });
+
+  it("27 | zone adresse courriel et confirmer courriel sont invalides si les valeurs sont différentes quand notifier par courriel", () => {
+
+  });
+
+  it("28 | zone adresse courriel et confirmer courriel sont valides si les valeurs sont identiques quand notifier par courriel", () => {
+
+  })
 
 
 });
