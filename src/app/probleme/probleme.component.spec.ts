@@ -187,7 +187,55 @@ describe('ProblemeComponent', () => {
     courriel.setValue("asdf@exemple.com");
     courriel2.setValue("asdf@exemple.com");
     expect(group.valid).toBeFalse();
-  })
+  });
+
+
+  it("29 | zone telephone est activée quand notifier par messagie texte", () => {
+    component.appliquerNotifications("messageTexte");
+    const telephone = component.problemeForm.get("telephone");
+    expect(telephone.disabled).toBeFalsy();
+
+  });
+
+  it("30 | zone adresse courriel est désactivée quand notifier par messagie texte", () => {
+    component.appliquerNotifications("messageTexte");
+    const courriel = component.problemeForm.get("courrielGroup.courriel");
+    expect(courriel.disabled).toBeTruthy();
+  });
+
+  it("31 | zone confirmer courriel est désactivée quand notifier par messagerie texte", () => {
+    component.appliquerNotifications("messageTexte");
+    const courriel2 = component.problemeForm.get("courrielGroup.courriel2");
+    expect(courriel2.disabled).toBeTruthy();
+
+  });
+
+  it("32 | zone telephone est invalide sans valeur quand notifier par messagerie texte", () => {
+    component.appliquerNotifications("messageTexte");
+    const telephone = component.problemeForm.get("telephone");
+    expect(telephone.valid).toBeFalsy();
+
+  });
+
+  it("33 | zone telephone est invalide avec des caractères non-numériques quand notifier par messagerie texte", () => {
+    component.appliquerNotifications("messageTexte");
+    const telephone = component.problemeForm.get("telephone");
+    telephone.setValue("dajhyr");
+    expect(telephone.valid).toBeFalsy();
+  });
+
+  it("34 | zone telephone est invalide avec 9 chiddres consécutifs quand notifier par messagerie texte", () => {
+
+  });
+
+  it("35 | zone telephone est invalide avec 11 chiffres consécutifs quand notifier par messagerie texte", () => {
+
+  });
+
+  it("36 | zone telephone est valide avec 10 chiffres consécutifs quand notifier par messagerie texte", () => {
+
+  });
+
 
 
 });
