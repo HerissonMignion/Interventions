@@ -224,16 +224,25 @@ describe('ProblemeComponent', () => {
     expect(telephone.valid).toBeFalsy();
   });
 
-  it("34 | zone telephone est invalide avec 9 chiddres consécutifs quand notifier par messagerie texte", () => {
-
+  it("34 | zone telephone est invalide avec 9 chiffres consécutifs quand notifier par messagerie texte", () => {
+    component.appliquerNotifications("messageTexte");
+    const telephone = component.problemeForm.get("telephone");
+    telephone.setValue("123456789");
+    expect(telephone.valid).toBeFalsy();
   });
 
   it("35 | zone telephone est invalide avec 11 chiffres consécutifs quand notifier par messagerie texte", () => {
-
+    component.appliquerNotifications("messageTexte");
+    const telephone = component.problemeForm.get("telephone");
+    telephone.setValue("12345678911");
+    expect(telephone.valid).toBeFalsy();
   });
 
   it("36 | zone telephone est valide avec 10 chiffres consécutifs quand notifier par messagerie texte", () => {
-
+    component.appliquerNotifications("messageTexte");
+    const telephone = component.problemeForm.get("telephone");
+    telephone.setValue("1234567891");
+    expect(telephone.valid).toBeTruthy();
   });
 
 

@@ -80,7 +80,7 @@ export class ProblemeComponent {
     if (valueNotification == "messageTexte") {
       const control = controls.telephone;
       control.enable();
-      control.addValidators([Validators.required]);
+      control.addValidators([Validators.required, Validators.pattern("[0-9]+"), Validators.minLength(10), Validators.maxLength(10)]);
     }
     else if (valueNotification == "courriel") {
       const control = controls.courriel;
