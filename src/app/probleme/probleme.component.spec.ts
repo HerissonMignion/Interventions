@@ -2,6 +2,8 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ProblemeComponent } from './probleme.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { TypesProblemeService } from './types-probleme.service';
 
 describe('ProblemeComponent', () => {
   let component: ProblemeComponent;
@@ -10,12 +12,19 @@ describe('ProblemeComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        HttpClientModule
       ],
-      declarations: [ ProblemeComponent ]
+      declarations: [ ProblemeComponent ],
+      providers: [
+        TypesProblemeService
+      ]
     })
     .compileComponents();
 
+  });
+
+  beforeEach(() => {
     fixture = TestBed.createComponent(ProblemeComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
@@ -61,6 +70,43 @@ describe('ProblemeComponent', () => {
     const zone = component.problemeForm.controls["prenom"];
     zone.setValue("  f");
     expect(zone.valid).toBeFalsy();
+  });
+
+  // it('Zone TELEPHONE est activee quand notifier par messageTexte', () => {
+  //   // component.appliquerNotifications("messageTexte");
+  //   // //  component.setNotification('messageTexte');
+  //   // let zone = component.problemeForm.get('telephone');
+  //   // expect(zone.enabled).toBeTrue();
+
+
+  // });
+
+  it("15 | Zone telephone est désactivée quand ne pas me notifier", () => {
+    component.appliquerNotifications("pasnotification");
+    const telephone = component.problemeForm.get("telephone");
+    expect(telephone.disabled).toBeTruthy();
+
+  });
+
+  it("16 | zone telephone est vide quand ne pas me notifier", () => {
+    component.appliquerNotifications("pasnotification");
+    const telephone = component.problemeForm.get("telephone");
+    console.log(telephone.value);
+    expect(telephone.value == null).toBeTruthy();
+  });
+
+  it("17 | zone adresse courriel est désactivée quand ne pas me notifier", () => {
+    component.appliquerNotifications("pasnotification");
+    const courriel = component.problemeForm.get("courriel");
+    expect(courriel.disabled).toBeTruthy();
+
+  });
+
+  it("18 | confirmer courriel est désactivée quand ne pas me notifier", () => {
+    component.appliquerNotifications("pasnotification");
+    const courriel2 = component.problemeForm.get("courriel2");
+    expect(courriel2.disabled).toBeTruthy();
+
   });
 
 
