@@ -1,6 +1,6 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { ITypeProbleme } from './probleme';
+import { ITypeProbleme } from './type-probleme';
 import { Observable } from 'rxjs/internal/Observable';
 import { catchError, tap } from "rxjs/operators";
 import { throwError } from 'rxjs';
@@ -10,7 +10,8 @@ import { throwError } from 'rxjs';
 })
 export class TypesProblemeService {
   
-  private baseUrl = 'api/typesprobleme';
+  // private baseUrl = 'api/typesprobleme';
+  private baseUrl = 'http://localhost:5197/v2/probleme';
 
   constructor(private _http: HttpClient) {
 
