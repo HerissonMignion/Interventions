@@ -10,7 +10,7 @@ import { Injectable } from "@angular/core";
 export class ProblemeService {
 
   // private baseUrl = 'https://localhost:7231/v1/probleme'; 
-  private baseUrl = 'https://localhost:5197/v1/probleme'; 
+  private baseUrl = 'http://localhost:5197/v1/probleme'; 
 
 
     constructor(private _http: HttpClient) { }
